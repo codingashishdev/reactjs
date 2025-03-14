@@ -1,4 +1,7 @@
 {
-    "prettier.tabWidth": 4,
-    "editor.fontFamily": "Maple Mono"
+    "editor.detectIndentation": false,
+    "editor.fontFamily": "Geist Mono",
+    "terminal.integrated.fontLigatures.enabled": false,
+    "editor.fontLigatures": false,
+    "github.copilot.chat.newWorkspaceCreation.enabled": true
 }

@@ -1,10 +1,12 @@
 import Execute from "./Ashish.jsx";
 
 function App() {
+    const username = "codingashishdev"
+
     return (
         <>
-            <h1>Something</h1>
-            <Execute />
+            //evaluate expression
+            <h1>hello {username}</h1>
         </>
     );
 }
