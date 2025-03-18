@@ -1,6 +1,0 @@
-{
-    "editor.detectIndentation": false,
-    "terminal.integrated.fontLigatures.enabled": false,
-    "editor.fontLigatures": false,
-    "github.copilot.chat.newWorkspaceCreation.enabled": true
-}
