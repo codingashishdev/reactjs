@@ -6,18 +6,13 @@ import "./App.css";
 function App() {
     let [color, setColor] = useState("Black");
 
-    function changeBG(newColor) {
-        console.log(color, " ", newColor);
-        // setColor(color = newColor)
-    }
-
     return (
         <>
             <div
                 className=" flex justify-center align-middle w-screen h-screen duration-200 m-0 p-10"
                 style={{ backgroundColor: color }}
             >
-                <div className="flex bg-cyan-900 w-4xl h-20 p-5 rounded-4xl  space-x-2 justify-center align-middle">
+                <div className="flex bg-amber-700 w-4xl h-20 p-5 rounded-4xl  space-x-2 justify-center align-middle shadow-2xl">
                     <button
                         className="h-10 w-25 flex justify-center align-middle"
                         style={{ backgroundColor: "red" }}
