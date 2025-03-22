@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import "./App.css";
 
 function App() {
@@ -21,7 +21,13 @@ function App() {
         }
 
         setPassword(generatedPassword);
+        //added setPassword for optimization purpose
+        //if by change we add password then we could stuck in infinite(password generation) loop
     }, [Length, NumberAllowed, CharactersAllowed, setPassword]);
+
+    useEffect(()=>{    
+        passwordGenerator()
+    }, [Length, NumberAllowed, CharactersAllowed, passwordGenerator])
 
     return (
         <>
@@ -34,6 +40,7 @@ function App() {
                             className="bg-white w-5/6 h-12 rounded-xl p-4 text-black"
                             readOnly
                             placeholder="Password"
+                            value={password}
                         />
                         <button className="bg-blue-500 text-white rounded-xl">Copy</button>
                     </div>
