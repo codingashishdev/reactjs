@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 {
     "prettier.tabWidth": 4
+=======
+{
+    "editor.fontFamily": "Cascadia Code"
+>>>>>>> a650c5010f30ad573b1e958e0bcc05dde7994852
 }
