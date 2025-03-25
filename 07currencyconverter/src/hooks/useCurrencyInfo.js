@@ -22,7 +22,7 @@ function useCurrencyInfo(currency) {
       .then((response) => response.json())
       .then((data) => setData(data[currency]));
   }, [currency]);
-  console.log(data);
+  // console.log(data);
   return data;
 }
 
