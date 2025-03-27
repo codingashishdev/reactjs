@@ -26,13 +26,13 @@ function App() {
     };
 
     const redirect = ()=>{
-        window.location.href = "#"
+        window.location.href = "/"
     }
 
     return (
         <>
             <div className="max-w-[85vw] ml-30 mt-2">
-                <header className="h-20 rounded-2xl bg-gradient-to-r from-slate-900 to-slate-700 flex justify-evenly items-center px-6">
+                <header className="h-20 rounded-2xl bg-gradient-to-r from-slate-900 to-slate-700 flex justify-evenly items-center px-6 shadow-xl z-40">
                     <div className="flex items-center gap-2 cursor-pointer" onClick={redirect}>
                         <img src="logo.png" alt="" width={30} height={30} style={{borderRadius:50}}/>
                         <h1 className="text-white text-xl hover:text-red-200 hover:underline">
@@ -129,8 +129,9 @@ function App() {
                                                 label="From"
                                                 amount={amount}
                                                 currencyOptions={options}
-                                                onCurrencyChange={(amount) =>
-                                                    setAmount(amount)
+                                                onCurrencyChange={(currency) =>
+                                                    setFrom(currency)
+                                                    // setAmount(amount)
                                                 }
                                                 onAmountChange={(amount) =>
                                                     setAmount(amount)
