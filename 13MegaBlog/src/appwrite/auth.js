@@ -15,14 +15,9 @@ export class AuthService {
     async createAccount({email, name, password}) {
         try {
             const userAccount = await this.account.create(ID.unique(), email, name, password)
-            
-            if(userAccount)
-                return this.login(email, password)
-            else{
-                return userAccount
-            }
+            return userAccount ? this.login(email, password) : userAccount 
         } catch (error) {
-            throw error
+            console.log("Appwrite authentication service :: account creation error")
         }
     }
 
@@ -30,7 +25,7 @@ export class AuthService {
         try {
             return await this.account.createEmailPasswordSession(email, password)
         } catch (error) {
-            throw error
+            console.log("Appwrite authentication service :: user login error")
         }
     }
 
@@ -38,18 +33,15 @@ export class AuthService {
         try {
             return await this.account.get()
         } catch (error) {
-            throw error;
+            console.log("Appwrite authentication service :: fetching user account error")
         }
-
-        // Process reaches here only if no account is found.
-        return null;
     }
 
     async logout(){
         try {
             return await this.account.deleteSessions()
         } catch (error) {
-            return error
+            console.log("Appwrite authentication service :: user logout error")
         }
     }
 }
