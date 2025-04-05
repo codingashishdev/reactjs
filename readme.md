@@ -86,7 +86,7 @@ A currency conversion application that uses real-time exchange rates.
 Demonstrates routing in React applications using React Router with features like nested routes and dynamic routing.
 
 ### 09minicontext
-Basic implementation of the Context API for state management.
+A basic implementation of the Context API to manage state globally in a React application. This project demonstrates how to create and use context for sharing data across components without prop drilling.
 
 ### 10themecontext
 Theme switching functionality using the Context API for global state management.
