@@ -39,7 +39,7 @@ export class Service {
         try {
             return await this.databases.updateDocument(
                 conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
+                conf.appwriteCollectionId, 
                 slug,
                 {
                     title,

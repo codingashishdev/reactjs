@@ -6,5 +6,6 @@ import LogoutBtn from "./Header/LogoutBtn";
 import Button from "./Button";
 import InputField from "./InputField";
 import Select from "./Select";
+import RTE from "./RTE";
 
 export { Header, Footer, Container, Logo, LogoutBtn, Button, InputField, Select }
