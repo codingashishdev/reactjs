@@ -16,7 +16,7 @@ function Postcard({
                             src={appwriteService.getFilePreview(featuredImage)} 
                             alt={title}
                             className='rounded-xl'
-                            />
+                        />
                     </div>
                     <h2 className='text-2xl font-bold' >{title}</h2>
                 </div>
