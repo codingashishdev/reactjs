@@ -10,13 +10,14 @@ function LogoutBtn() {
             .logout()
             .then(() => {
                 dispatch(logout());
+                alert("logout successfully")
             })
     };
 
     return (
         <div>
             <button
-                className="w-3 h-2 bg-blue-700 text-shadow-white"
+                className="w-30 h-10 bg-blue-600 text-shadow-white cursor-pointer"
                 onClick={handleLogout}
             >
                 Logout

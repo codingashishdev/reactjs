@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { authService } from "../appwrite/auth";
+import authService from "../appwrite/auth.js";
 import { login } from "../store/authSlice";
-import { Button, Select, Logo, InputField } from "./index";
+import { Button, Select, Logo, Input } from "./index";
 import { useForm } from "react-hook-form";
 
 function Signup() {
@@ -17,14 +17,12 @@ function Signup() {
         try {
             const userData = await authService.createAccount(data);
             if (userData) {
-                const currentUser = await authService.getCurrentUser();
-                if (currentUser) {
-                    dispatch(login(currentUser));
-                    navigate("/");
-                }
+                const userData = await authService.getCurrentUser();
+                if (userData) dispatch(login(userData));
+                navigate("/");
             }
         } catch (error) {
-            setError(error);
+            setError(error.message);
         }
     };
 
@@ -45,7 +43,7 @@ function Signup() {
                     Already have an account?&nbsp;
                     <Link
                         to="/login"
-                        className="font-medium text-primary transition-all duration-200 hover:underline"
+                        className="font-medium text-blue-400 transition-all duration-200 hover:underline"
                     >
                         Sign In
                     </Link>
@@ -56,18 +54,20 @@ function Signup() {
 
                 <form onSubmit={handleSubmit(create)}>
                     <div>
-                        <InputField
+                        <Input
                             label="Name: "
                             type="text"
+                            className="mb-2"
                             placeholder="Enter your name"
                             {...register("name", {
                                 required: true,
                             })}
                         />
 
-                        <InputField
+                        <Input
                             label="Email: "
                             type="email"
+                            className="mb-2"
                             placeholder="Enter your email"
                             {...register("email", {
                                 required: true,
@@ -81,16 +81,17 @@ function Signup() {
                             })}
                         />
 
-                        <InputField
+                        <Input
                             label="Password: "
                             type="password"
+                            className="mb-2"
                             placeholder="Enter your password"
                             {...register("password", {
                                 required: true,
                             })}
                         />
 
-                        <Button type="submit" className="w-full">
+                        <Button type="submit" className="w-full cursor-pointer">
                             Signup
                         </Button>
                     </div>

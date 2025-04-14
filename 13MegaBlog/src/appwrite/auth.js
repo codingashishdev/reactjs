@@ -14,10 +14,10 @@ export class AuthService {
 
     async createAccount({ email, name, password }) {
         try {
-            const userAccount = await this.account.create(ID.unique(), email, name, password)
+            const userAccount = await this.account.create(ID.unique(), email, password, name)
             return userAccount ? this.login(email, password) : userAccount
         } catch (error) {
-            console.log("Appwrite authentication service :: account creation error")
+            console.log("Appwrite authentication service :: account creation error", error)
         }
     }
 
@@ -47,5 +47,4 @@ export class AuthService {
 }
 
 const authService = new AuthService();
-
-export default authService;
+export default authService
