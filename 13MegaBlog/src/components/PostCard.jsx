@@ -3,13 +3,16 @@ import appwriteService from "../appwrite/config"
 import { Link } from 'react-router-dom' 
 
 function Postcard({
-    $id,
+    post,
     title,
-    featuredImage, 
+    featuredImage
 }) {
     return (
         <>
-            <Link to={`/post/${$id}`}>
+            <div>
+                {console.log(post.$id)}
+            </div>
+            <Link to={`/post/${post.$id}`}>
                 <div className='w-full bg-gray-200 rounded-xl p-4'>
                     <div className='w-full justify-center mb-4'>
                         <img 
