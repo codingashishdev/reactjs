@@ -8,9 +8,9 @@ function EditPost() {
     const navigate = useNavigate()
     const { slug } = useParams()
 
-    useEffect(() => {
+    useEffect(async () => {
         if(slug){
-            appwriteService.getPost({slug}).then((post)=>{
+            await appwriteService.getPost({slug}).then((post)=>{
                 if(post){
                     setPosts(post)
                 }
@@ -23,7 +23,7 @@ function EditPost() {
 
     return (
         <div className='py-8'>
-            {/* {console.log(post)}                 */}
+            {/* {console.log(post)} */}
             <Container>
                 <PostForm post={post}/>
             </Container>

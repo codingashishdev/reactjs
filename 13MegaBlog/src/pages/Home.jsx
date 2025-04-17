@@ -7,8 +7,8 @@ function Home() {
     const authStatus = useSelector((state) => state.auth.status)
     const [posts, setPosts] = useState([]);
 
-    useEffect(() => {
-        appwriteService.getAllPosts().then((post) => {
+    useEffect(async () => {
+        await appwriteService.getAllPosts().then((post) => {
             if (post) {
                 setPosts(post.documents);
             }
