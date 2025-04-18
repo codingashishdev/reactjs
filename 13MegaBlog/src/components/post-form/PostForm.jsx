@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addPost } from "../../store/postSlice";
 import {updatePost} from "../../store/postSlice"
-import { removePost } from "../../store/postSlice";
+// import { removePost } from "../../store/postSlice";
 
 export default function PostForm({ post }) {
     const { register, handleSubmit, watch, setValue, control, getValues } =
@@ -23,7 +23,6 @@ export default function PostForm({ post }) {
     const navigate = useNavigate();
     const dispatch = useDispatch()
     const userData = useSelector((state) => state.auth.userData);
-    const userPost = useSelector((state) => state.post.posts)
 
     const submit = async (data) => {
         if (post) {

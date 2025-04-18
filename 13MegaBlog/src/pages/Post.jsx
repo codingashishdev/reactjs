@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams, useResolvedPath } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import appwriteService from "../appwrite/config";
 import { Button, Container } from "../components";
 import parse from "html-react-parser";
@@ -11,18 +11,20 @@ export default function Post() {
     const [post, setPost] = useState(null);
     const { slug } = useParams();
     const navigate = useNavigate();
-    const dispatch = useDispatch()
-
+    const dispatch = useDispatch();
     const userData = useSelector((state) => state.auth.userData);
-    const userPost = useSelector((state) => state.post.posts)
+    // const userPosts = useSelector((state) => state.post.posts);
 
     const isAuthor = post && userData ? post["userId"] === userData.$id : false;
-    
-    useEffect(async () => {
+
+    useEffect(() => {
         if (slug) {
-            await appwriteService.getPost({slug}).then((post) => {
-                if (post) setPost(post);
-                else navigate("/");
+            appwriteService.getPost(slug).then((post) => {
+                if (post) {
+                    setPost(post);
+                } else {
+                    navigate("/");
+                }
             });
         } else navigate("/");
     }, [slug, navigate]);
@@ -31,7 +33,7 @@ export default function Post() {
         await appwriteService.deletePost(post.$id).then((status) => {
             if (status) {
                 appwriteService.deleteFile(post.featuredImage);
-                dispatch(removePost())
+                dispatch(removePost(slug));
                 navigate("/");
             }
         });

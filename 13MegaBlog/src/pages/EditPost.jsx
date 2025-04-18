@@ -10,7 +10,7 @@ function EditPost() {
 
     useEffect(async () => {
         if(slug){
-            await appwriteService.getPost({slug}).then((post)=>{
+            await appwriteService.getPost(slug).then((post)=>{
                 if(post){
                     setPosts(post)
                 }
@@ -23,7 +23,6 @@ function EditPost() {
 
     return (
         <div className='py-8'>
-            {/* {console.log(post)} */}
             <Container>
                 <PostForm post={post}/>
             </Container>

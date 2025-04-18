@@ -52,7 +52,7 @@ export class Service {
         }
     }
 
-    async deletePost({ slug }) {
+    async deletePost(slug) {
         try {
             const deletedDocument = await this.databases.deleteDocument(
                 conf.appwriteDatabaseId,
@@ -68,7 +68,7 @@ export class Service {
         }
     }
 
-    async getPost({slug}) {
+    async getPost(slug) {
         try {
             return await this.databases.getDocument(
                 conf.appwriteDatabaseId,

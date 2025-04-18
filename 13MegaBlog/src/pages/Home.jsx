@@ -7,12 +7,15 @@ function Home() {
     const authStatus = useSelector((state) => state.auth.status)
     const [posts, setPosts] = useState([]);
 
-    useEffect(async () => {
-        await appwriteService.getAllPosts().then((post) => {
-            if (post) {
-                setPosts(post.documents);
-            }
-        });
+    useEffect(() => {
+        async function fetchAllThePosts(){
+            await appwriteService.getAllPosts().then((post) => {
+                if (post) {
+                    setPosts(post.documents);
+                }
+            });
+        }
+        fetchAllThePosts()
     }, []);
 
     if (posts.length === 0) {
@@ -33,11 +36,11 @@ function Home() {
         <div className="w-full py-8">
             <Container>
                 <div className="flex flex-wrap">
-                    {posts.map((post) => {
+                    {posts.map((post) => (
                         <div key={post.$id} className="p-2 w-1/4">
-                            <PostCard {...post} />
-                        </div>;
-                    })}
+                            <PostCard {...post}/>
+                        </div>
+                    ))}   
                 </div>
             </Container>
         </div>
